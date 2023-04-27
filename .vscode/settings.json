@@ -1,0 +1,30 @@
+{
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "__availability": "cpp",
+        "__config": "cpp",
+        "__hash_table": "cpp",
+        "__locale": "cpp",
+        "locale": "cpp",
+        "memory": "cpp",
+        "new": "cpp",
+        "ratio": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "type_traits": "cpp",
+        "typeinfo": "cpp",
+        "concepts": "cpp",
+        "__threading_support": "cpp",
+        "__tree": "cpp",
+        "compare": "cpp",
+        "random": "cpp",
+        "__tuple": "cpp",
+        "array": "cpp",
+        "limits": "cpp",
+        "tuple": "cpp",
+        "variant": "cpp",
+        "chrono": "cpp",
+        "cstddef": "cpp",
+        "filesystem": "cpp"
+    }
+}

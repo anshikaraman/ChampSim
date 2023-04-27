@@ -71,7 +71,7 @@ extern uint32_t PAGE_TABLE_LATENCY, SWAP_LATENCY;
 
 // LAST LEVEL CACHE
 #define LLC_SET NUM_CPUS*2048
-#define LLC_WAY 16
+#define LLC_WAY 16*2
 #define LLC_RQ_SIZE NUM_CPUS*L2C_MSHR_SIZE //48
 #define LLC_WQ_SIZE NUM_CPUS*L2C_MSHR_SIZE //48
 #define LLC_PQ_SIZE NUM_CPUS*32
@@ -208,7 +208,9 @@ class CACHE : public MEMORY {
          //prefetcher_final_stats(),
          l1d_prefetcher_final_stats(),
          l2c_prefetcher_final_stats(),
-         llc_prefetcher_final_stats();
+         llc_prefetcher_final_stats(),
+         handle_back_invalidation(uint8_t cache_type1, uint64_t address1, uint32_t set1, uint32_t way1);
+
     void (*l1i_prefetcher_cache_operate)(uint32_t, uint64_t, uint8_t, uint8_t);
     void (*l1i_prefetcher_cache_fill)(uint32_t, uint64_t, uint32_t, uint32_t, uint8_t, uint64_t);
 
@@ -222,6 +224,8 @@ class CACHE : public MEMORY {
              find_victim(uint32_t cpu, uint64_t instr_id, uint32_t set, const BLOCK *current_set, uint64_t ip, uint64_t full_addr, uint32_t type),
              llc_find_victim(uint32_t cpu, uint64_t instr_id, uint32_t set, const BLOCK *current_set, uint64_t ip, uint64_t full_addr, uint32_t type),
              lru_victim(uint32_t cpu, uint64_t instr_id, uint32_t set, const BLOCK *current_set, uint64_t ip, uint64_t full_addr, uint32_t type);
+
+    
 };
 
 #endif
